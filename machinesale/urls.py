@@ -17,9 +17,11 @@ from django.contrib import admin
 
 # 引入include
 from django.urls import path, include
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    # 新增代码，配置app的url
-    path('products/', include('products.urls', namespace='article')),
-]
+                  path('admin/', admin.site.urls),
+                  # 新增代码，配置app的url
+                  path('products/', include('products.urls', namespace='article')),
+              ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
