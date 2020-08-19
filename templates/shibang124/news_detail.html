@@ -1,0 +1,40 @@
+{% extends "shibang124/base.html" %}
+{% load static %}
+{% block title %}{{ news.title }}{% endblock title %}
+{% block content %}
+    <div class="subnav bg">
+        <div class="width1170">
+            <p><a href="#">首页</a>/<a href="{% url 'news:news_list' %}">新闻</a>/<a href="#">行业动态</a></p>
+        </div>
+    </div>
+    <div class="content_news_box width1170">
+        <div class="content_news ">
+            <h1 align="center">{{ news.title }}<span>2020-04-09 14:03:23  |  作者: CLL</span></h1>
+            <div class="guide bg">
+                <p>{{ news.summary }}</p>
+            </div>
+            <div class="news_chat">
+                <h3>读文太累？试试人工客服！</h3>
+                <p>工程师一对一为您服务，及时制定计划，及时提供投资估算！</p>
+                <a href="#" class="tell">021-58386699</a><a href="#">转人工客服</a>
+            </div>
+            <div class="col_news_text">
+                {{ news.body|safe }}
+                <div class="clear"></div>
+            </div>
+
+
+            <div class="next_news">
+                <a href="#">上一篇：移动破碎站的火爆背后，藏着怎样的原因？</a>
+                <a href="#">上一篇：移动破碎站的火爆背后，藏着怎样的原因？</a>
+            </div>
+        </div>
+    </div>
+    <div class="   col_contact_form">
+        <div class="width1170">
+            <h2 align="center">在线提交需求</h2>
+            <script type="text/javascript" src="{% static 'shibang124/js/form.js' %}"></script>
+        </div>
+    </div>
+
+{% endblock content %}

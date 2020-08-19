@@ -1,9 +1,10 @@
-# 引入path
 from django.urls import path
+from . import views
 
 # 正在部署的应用的名称
-app_name = 'products'
+app_name = 'product'
 
 urlpatterns = [
-    # 目前还没有urls
+    path('', views.product_list, name='product_list'),
+    path('<slug:slug>/', views.detail, name='detail'),
 ]

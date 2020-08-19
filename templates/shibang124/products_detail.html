@@ -1,0 +1,98 @@
+{% extends "shibang124/base.html" %}
+{% load static %}
+{% block title %}{{ product.title }}{% endblock title %}
+
+{% block content %}
+    <div class="col_product_top">
+    <div class=" width1170">
+        <div class=" warp_right pull_left"><img src="/media/{{ product.image }}" width="450" height="450" alt=""/></div>
+        <div class="warp_left pull_right">
+            <h1>{{ product.title }}</h1>
+            <p>{{ product.body }}</p>
+            <h4>产品特点：{{ product.cptd }}</h4>
+            <ul>
+                <li><strong>进料粒度：</strong>{{ product.jlld }}</li>
+                <li><strong>生产能力：</strong>{{ product.scnl }}</li>
+                <li><strong>适用物料：</strong>{{ product.sywl }}</li>
+            </ul>
+            <div class="warp_online_chat"><a href="#" class="online_chat">获取产品报价</a><a href="#"
+                                                                                       class="online_tell"><span>021-58386699</span>拨打全国热线了解更多</a><a
+                    href="#" class="online_pdf">产品画册(PDF)</a></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<div class="pro_work bg">
+    <div class="  width1170">
+        <h2 align="center">工作原理</h2>
+        <p>{{ product.gzyl }}</p>
+    </div>
+</div>
+<div class="tab-wrapper tab-wrapper_product ">
+    <div class=" tab-menu_product ">
+        <ul class="tab-menu">
+            <li class="active"><span>性能特点</span></li>
+            <li><span>产品参数</span></li>
+            <div class="clear"></div>
+        </ul>
+    </div>
+    <div class="tab-content   width1170">
+        <div class="tab-pane col_odds_list active">
+            <ul>
+                {% for adv in product.advantage_set.all %}
+                    <li><img src="{% static 'shibang124/images/ico_p_1.png' %}" width="100" height="100" alt=""
+                             class="pull_left"/>
+                        <div class="text pull_right">
+                            <h3> {{ adv.title|safe }}</h3>
+                            <p>{{ adv.content|safe }}</p>
+                        </div>
+                        <div class="clear"></div>
+                    </li>
+                {% empty %}
+                    <div class="no-post">暂时还没有发布的文章！</div>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="tab-pane  pro_table">
+            <div class="col_table ">
+                {{ product.jscs | safe }}
+                <script type="text/javascript" src="{% static 'shibang124/js/xhr.js' %}"></script>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col_atlas bg">
+    <div class="width1170">
+        <h2 align="center">产品图集</h2>
+        <ul>
+            {% for image in product.relatedimage_set.all %}
+                <li><img src="/media/{{ image.image }}" width="570" height="570" alt=""/></li>
+            {% empty %}
+                <div class="no-post">暂时还没有发布的文章！</div>
+            {% endfor %}
+            <div class="clear"></div>
+        </ul>
+    </div>
+</div>
+<div class="  col_top  list_product list_product2 width1170">
+    <h2 align="center"><a href="#">用户关注更多的产品</a></h2>
+    <ul>
+        {% for product in posui_product_list %}
+            <li><a href="{{ product.get_absolute_url }}"><img src="/media/{{ product.image }}" width="370" height="370"
+                                                              alt=""/></a>
+                <h3><a href="{{ product.get_absolute_url }}">{{ product.title }}</a></h3>
+            </li>
+
+        {% empty %}
+            <div class="no-post">暂时还没有产品！</div>
+        {% endfor %}
+
+        <div class="clear"></div>
+    </ul>
+    <a href="#" class="more">查看更多</a></div>
+<div class="width1170   col_contact_form">
+    <h2 align="center">在线提交需求</h2>
+    <script type="text/javascript" src="{% static 'shibang124/js/form.js' %}"></script>
+</div>
+{% endblock content %}
+

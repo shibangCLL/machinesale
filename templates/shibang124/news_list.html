@@ -1,0 +1,44 @@
+{% extends "shibang124/base.html" %}
+{% load static %}
+{% block title %}新闻列表{% endblock title %}
+{% block content %}
+    <div class="banner banner_inner"><a href="#"><img src="{% static 'shibang124/images/banner_news.jpg' %}" width="1920"
+                                                  height="490" alt=""/></a>
+    <div class="width1170 text">
+        <h2>公司新闻</h2>
+        <p>这里是较及时、较准确、较权威的世邦工业信息平台。我们立足自身发展，无论是世邦工业热点还是技术革新，都将前列时间呈现给您……。</p>
+    </div>
+</div>
+<div class="nav_tab nav_tab2  bg">
+    <div class="  width1170">
+        <ul>
+            <li class="active"><a href="#">公司新闻</a></li>
+            <li><a href="#">公司新闻</a></li>
+        </ul>
+    </div>
+</div>
+<div class="col_bottom col_news_list width1170">
+    <ul>
+        {% for news in news_list %}
+            <li><a href="{% url 'news:news_detail' news.slug %}" class="pull_left"><img
+                    src="{{ news.image.url }}" width="300"
+                    height="165" alt=""/></a>
+                <div class="text pull_right">
+                    <h3><a href="{% url 'news:news_detail' news.slug %}">{{ news.title }}</a></h3>
+                    <p>{{ news.summary }}</p>
+                    <span>{{ news.create_date }}</span>
+                    <a href="#" class="more2">查看详情</a></div>
+                <div class="clear"></div>
+            </li>
+        {% empty %}
+            <div class="no-post">暂时还没有产品！</div>
+        {% endfor %}
+
+
+    </ul>
+
+    <div class=" width1170 list_page"><a href="#" class="disabled"><</a><b>1</b><a href="#">2</a><a href="#">3</a><a
+            href="#">4</a> ...... <a href="#">10</a><a href="#" class="disabled">></a></div>
+</div>
+{% endblock content %}
+

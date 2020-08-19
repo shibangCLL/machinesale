@@ -1,0 +1,118 @@
+{% extends "shibang124/base.html" %}
+
+{% load static %}
+
+{% block title %}首页{% endblock title %}
+
+{% block content %}
+    <div class="banner swiper-container banner_inner banner_swiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="{% static 'shibang124/images/banner_1.jpg' %}" width="1920" height="490"
+                                           alt=""/>
+                <div class="width1170 text">
+                    <h2>傲然屹立全球的中国矿机制造品牌</h2>
+                    <p>缘起于1987年，世邦集团通过不断努力取得了多项破碎机、磨粉机技术发明及授权，研发生产的破碎、磨粉设备远销全球170多个国家和地区，是8000多位投资者共同的选择。</p>
+                </div>
+            </div>
+            <div class="swiper-slide"><img src="{% static 'shibang124/images/banner_1.jpg' %}" width="1920" height="490"
+                                           alt=""/>
+                <div class="width1170 text">
+                    <h2>傲然屹立全球的中国矿机制造品牌</h2>
+                    <p>缘起于1987年，世邦集团通过不断努力取得了多项破碎机、磨粉机技术发明及授权，研发生产的破碎、磨粉设备远销全球170多个国家和地区，是8000多位投资者共同的选择。</p>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+        <div class="swiper-pagination  "></div>
+    </div>
+    <div class="  col_top width1170">
+        <h2 align="center"><a href="#">热门产品</a></h2>
+        <ul>
+            {% for product in hot_product_list %}
+                <li><a href="{{ product.get_absolute_url }}"><img src="/media/{{ product.image }}" width="370"
+                                                                  height="370"
+                                                                  alt=""/></a>
+                    <h3><a href="{{ product.get_absolute_url }}">{{ product.title }}</a></h3>
+                </li>
+
+
+            {% empty %}
+                <div class="no-post">暂时还没有产品！</div>
+            {% endfor %}
+            <div class="clear"></div>
+        </ul>
+        <a href="{% url 'product:product_list' %}" class="more">查看更多</a>
+    </div>
+    {#    <div class="col_middle">#}
+    {#        <div class=" width1170">#}
+    {#            <h2 align="center"><a href="#">客户案例</a></h2>#}
+    {#            <ul>#}
+    {#                {% for project in project_list %}#}
+    {#                    <li><a href="{{ project.get_absolute_url }}"><img#}
+    {#                            src="{% static 'shibang124/images/col_middle_1.jpg' %}" width="350"#}
+    {#                            height="237"#}
+    {#                            alt=""/></a>#}
+    {#                        <h3><a href="{{ project.get_absolute_url }}">{{ project.title }}</a></h3>#}
+    {#                    </li>#}
+    {#                {% empty %}#}
+    {#                    <div class="no-post">暂时还没有产品！</div>#}
+    {#                {% endfor %}#}
+    {##}
+    {##}
+    {##}
+    {#                <div class="clear"></div>#}
+    {#            </ul>#}
+    {#            <a href="#" class="more">查看更多</a>#}
+    {#        </div>#}
+    {#    </div>#}
+    {#    <div class="col_bottom width1170">#}
+    {#        <h2 align="center"><a href="#">新闻资讯</a></h2>#}
+    {##}
+    {#        <ul>#}
+    {#            {% for news in news_list %}#}
+    {#                <li><a href="{{ news.get_absolute_url }}" class="pull_left"><img#}
+    {#                        src="{% static 'shibang124/images/news1.jpg' %}" width="300"#}
+    {#                        height="165" alt=""/></a>#}
+    {#                    <div class="text pull_right">#}
+    {#                        <h3><a href="{{ news.get_absolute_url }}">{{ news.title }}</a></h3>#}
+    {#                        <p>{{ news.advantage_set.all.first.content }}</p>#}
+    {#                        <span>2020-02-25</span>#}
+    {#                        <a href="#" class="more2">查看详情</a></div>#}
+    {#                    <div class="clear"></div>#}
+    {#                </li>#}
+    {#            {% empty %}#}
+    {#                <div class="no-post">暂时还没有产品！</div>#}
+    {#            {% endfor %}#}
+    {##}
+    {#        </ul>#}
+    {#        <a href="#" class="more">查看更多</a>#}
+    {#    </div>#}
+    <div class="col_bottom_list">
+        <div class="width1170">
+            <ul>
+                <li>
+                    <h2>30年</h2>
+                    <p> 缘起于1987，世邦工业在矿机领域踏实稳健的发展，逐渐形成了完善的研发、生产、销售、服务体系，成为全球矿机制造行业的翘楚，与国际知名企业竞争，角逐世界市场。</p>
+                    <img src="{% static 'shibang124/images/about1.jpg' %}" width="228" height="99" alt=""/>
+                </li>
+                <li>
+                    <h2>40亿</h2>
+                    <p> 世邦工业在建的临港矿机生产基地预计每年就可以实现40亿人民币的产值。建成后，该单体工厂足以影响整个亚洲区，甚至全球的矿机生产制造市场格局</p>
+                    <img src="{% static 'shibang124/images/about2.jpg' %}" width="228" height="99" alt=""/>
+                </li>
+                <li>
+                    <h2>120万平</h2>
+                    <p> 截至2019年，世邦工业及其附属企业拥有5个先进的矿机生产基地和一个在建的河南焦作修武生产基地，总生产面积达1,200,000平米，未来能够更好满足全球客户的更多需求。</p>
+                    <img src="{% static 'shibang124/images/about3.jpg' %}" width="228" height="99" alt=""/>
+                </li>
+                <li>
+                    <h2>170个</h2>
+                    <p> 世邦工业市场营销网络目前已经遍及亚、非、欧、美和大洋洲的170多个国家和地区，并在30多个国家设立了海外办事处。</p>
+                    <img src="{% static 'shibang124/images/about4.jpg' %}" width="228" height="99" alt=""/>
+                </li>
+                <div class="clear"></div>
+            </ul>
+        </div>
+    </div>
+{% endblock content %}
+

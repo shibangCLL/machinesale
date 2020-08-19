@@ -1,0 +1,89 @@
+{% extends "shibang124/base.html" %}
+{% load static %}
+
+{% block title %}{{ project.title|safe }} {% endblock title %}
+
+{% block content %}
+    <div class="col_case_top">
+        <div class="width1170">
+            <h1 align="center">{{ project.title|safe }} </h1>
+        </div>
+    </div>
+    <div class="col_case_text width1170">
+        <div class="col_case_listimg  ">
+            <h3>项目介绍</h3>
+            <p>{{ project.body|safe }}</p>
+            <ul>
+                <ul>
+                    {% for image in project.relatedimage_set.all %}
+                        <li><img src="/media/{{ image.image }}" width="570" height="570" alt=""/></li>
+                    {% empty %}
+                        <div class="no-post">暂时还没有发布的文章！</div>
+                    {% endfor %}
+                    <div class="clear"></div>
+                </ul>
+
+                <div class="clear"></div>
+            </ul>
+        </div>
+        <div class="text">
+            <h3>项目简介</h3>
+            <ul>
+                <li>原料：{{ project.yl }}</li>
+                <li>产能：{{ project.cn }}</li>
+                <li>成品用途：{{ project.cpcc }}</li>
+            </ul>
+        </div>
+        <div class="content_case_text">
+            <h3>项目优势</h3>
+            <ul>
+                {% for adv in project.advantage_set.all %}
+                    <li>
+                        <h4>{{ adv.title }}</h4>
+                        <p>{{ adv.content|safe }} </p>
+                    </li>
+                {% empty %}
+                    <div class="no-post">暂时还没有发布的文章！</div>
+                {% endfor %}
+
+
+            </ul>
+        </div>
+        <div class="text text_case_ul">
+            <h3>设备配置</h3>
+            <ul>
+                <li><a href="#">C6X颚式破碎机</a></li>
+                <li><a href="#">HST单缸液压圆锥式破碎机</a></li>
+                <li><a href="#">VSI6X立轴冲击式破碎机(制砂机)</a></li>
+                <li><a href="#">F5X给料机</a></li>
+                <li><a href="#">S5X振动筛</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="bg  col_case_middle">
+        <div class=" width1170">
+            <h2 align="center">其他</h2>
+            <ul>
+                <li><a href="#"><img src="{% static 'shibang124/images/col_middle_1.jpg' %}" width="350" height="237"
+                                     alt=""/></a>
+                    <h3><a href="#">甘肃时产80-100吨花岗岩移动破碎生产线</a></h3>
+                </li>
+                <li><a href="#"><img src="{% static 'shibang124/images/col_middle_1.jpg' %}" width="350" height="237"
+                                     alt=""/></a>
+                    <h3><a href="#">甘肃时产80-100吨花岗岩移动破碎生产线</a></h3>
+                </li>
+                <li><a href="#"><img src="{% static 'shibang124/images/col_middle_1.jpg' %}" width="350" height="237"
+                                     alt=""/></a>
+                    <h3><a href="#">甘肃时产80-100吨花岗岩移动破碎生产线</a></h3>
+                </li>
+                <div class="clear"></div>
+            </ul>
+            <a href="#" class="more">查看更多</a></div>
+    </div>
+    <div class="   col_contact_form">
+        <div class="width1170">
+            <h2 align="center">继续深入了解此产品，你可以在此提交你的需求</h2>
+            <script type="text/javascript" src="{% static 'shibang124/js/form.js' %}"></script>
+        </div>
+    </div>
+{% endblock content %}

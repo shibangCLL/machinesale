@@ -1,0 +1,43 @@
+{% extends "shibang124/base.html" %}
+{% load static %}
+{% block title %}案例{% endblock title %}
+{% block content %}
+    <div class="banner banner_inner"><a href="#"><img src="{% static 'shibang124/images/banner_case.jpg' %}"
+                                                      width="1920"
+                                                      height="490" alt=""/></a>
+        <div class="width1170 text">
+            <h2>国务院津贴工程师领衔研发设计团队</h2>
+            <p>为您定制更专业的石料破碎，磨粉工艺方案</p></div>
+    </div>
+    <div class="nav_tab  bg">
+        <div class="  width1170">
+            <ul>
+                <li class="active"><a href="#">建筑骨料</a></li>
+                <li><a href="#">工业磨粉</a></li>
+                <li><a href="#">矿山处理</a></li>
+                <li><a href="#">绿色建材</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="     col_list_case width1170 ">
+        <ul class="  showMoreNChildren" pagesize="12">
+
+            {% for project in project_list %}
+
+                <li><a href="{{ project.get_absolute_url }}"><img src="/media/{{ project.image }}" width="370"
+                                                 height="250"
+                                                 alt=""/></a>
+                    <h3><a href="{{ project.get_absolute_url }}">{{ project.title }}</a></h3>
+                    <a href="{{ project.get_absolute_url }}"><span></span></a></li>
+            {% empty %}
+                <div class="no-post">暂时还没有产品！</div>
+            {% endfor %}
+
+
+            <div class="clear"></div>
+        </ul>
+    </div>
+{% endblock content %}
+
+

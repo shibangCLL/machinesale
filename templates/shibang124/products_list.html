@@ -1,0 +1,76 @@
+{% extends "shibang124/base.html" %}
+{% load static %}
+
+{% block title %}产品中心{% endblock title %}
+
+{% block content %}
+    <div class="banner banner_inner banner_inner2"><a href="#"><img
+            src="{% static 'shibang124/images/banner_list.jpg' %}"
+            width="1920" height="490" alt=""/></a>
+        <div class="width1170 text">
+            <h2>匠心守质 智创未来</h2>
+            <p>石邦集团百余款高端磨破装备为您的项目保驾护航。</p>
+        </div>
+    </div>
+    <div class="col_top list_product_top  list_product width1170">
+        <h2 align="center">破碎设备</h2>
+        <ul class="  showMoreNChildren" pagesize="3">
+
+            {% for product in posui_product_list %}
+                <li><a href="{{ product.get_absolute_url }}"><img src="/media/{{ product.image }}" width="370"
+                                                                  height="370"
+                                                                  alt=""/></a>
+                    <h3><a href="{{ product.get_absolute_url }}">{{ product.title }}</a></h3>
+                </li>
+            {% empty %}
+                <div class="no-post">暂时还没有产品！</div>
+            {% endfor %}
+
+        </ul>
+    </div>
+    <div class=" col_top list_product width1170">
+        <h2 align="center">磨粉设备</h2>
+        <ul class="  showMoreNChildren" pagesize="3">
+            {% for product in mofen_product_list %}
+                <li><a href="{{ product.get_absolute_url }}"><img src="/media/{{ product.image }}" width="370"
+                                                                  height="370"
+                                                                  alt=""/></a>
+                    <h3><a href="{{ product.get_absolute_url }}">{{ product.title }}</a></h3>
+                </li>
+            {% empty %}
+                <div class="no-post">暂时还没有产品！</div>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class=" col_top list_product width1170">
+        <h2 align="center">大型成套设备</h2>
+        <ul class="  showMoreNChildren" pagesize="3">
+            {% for product in daxing_product_list %}
+                <li><a href="{{ product.get_absolute_url }}"><img src="/media/{{ product.image }}" width="370"
+                                                                  height="370"
+                                                                  alt=""/></a>
+                    <h3><a href="{{ product.get_absolute_url }}">{{ product.title }}</a></h3>
+                </li>
+            {% empty %}
+                <div class="no-post">暂时还没有产品！</div>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="col_top  list_product width1170">
+        <h2 align="center">辅助设备</h2>
+        <ul class="  showMoreNChildren" pagesize="3">
+            {% for product in fuzhu_product_list %}
+                <li><a href="{{ product.get_absolute_url }}"><img src="/media/{{ product.image }}" width="370"
+                                                                  height="370"
+                                                                  alt=""/></a>
+                    <h3><a href="{{ product.get_absolute_url }}">{{ product.title }}</a></h3>
+                </li>
+            {% empty %}
+                <div class="no-post">暂时还没有产品！</div>
+            {% endfor %}
+        </ul>
+    </div>
+    </div>
+{% endblock content %}
+
+

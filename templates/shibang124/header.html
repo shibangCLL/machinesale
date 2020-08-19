@@ -1,0 +1,28 @@
+{% load static %}
+<div id="header" class="nav">
+    <div class="width1170"><a href="index.html" class="logo pull_left"><img
+            src="{% static 'shibang124/images/logo.png' %}" width="96" height="54" alt=""/></a>
+        <div id="pull" class="pull_right">Menu</div>
+        <ul class="pull_right">
+            <li><a href="/" class="active">首页</a></li>
+{#            <li><a href="{% url 'about:about' %}">关于</a></li>#}
+            <li><a href="{% url 'product:product_list' %}">产品</a></li>
+{#            <li><a href="{% url 'project:project_list' %}">案例</a></li>#}
+            <li><a href="{% url 'news:news_list' %}">新闻</a></li>
+{#            <li><a href="{% url 'contact:contact' %}">联系</a></li>#}
+        </ul>
+        <div class="clear"></div>
+    </div>
+</div>
+{#<script src="{% static 'shibang124/js/jquery-1.9.1.min.js' %}" type="text/javascript"></script>#}
+
+
+
+{#<script>#}
+{#    $("a").click(function (e){#}
+{##}
+{#      $("a").removeClass("active");#}
+{#      $(e.target).addClass("active");#}
+{#      return true;#}
+{#    })#}
+{#</script>#}

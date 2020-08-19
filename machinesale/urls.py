@@ -19,9 +19,13 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
+from products import views
 
 urlpatterns = [
                   path('admin/', admin.site.urls),
+                  path('mdeditor/', include('mdeditor.urls')),
                   # 新增代码，配置app的url
-                  path('products/', include('products.urls', namespace='article')),
+                  path('products/', include('products.urls')),
+                  path('news/', include('news.urls')),
+                  path('', views.index, name='index'),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
